@@ -1,0 +1,13 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Планировщик</title>
+    </head>
+    <body>
+        <a href="{% url 'settings' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        <h1> <a href="/"> Планировщик </a></h1>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
