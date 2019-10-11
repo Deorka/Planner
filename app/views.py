@@ -9,3 +9,13 @@ def settings(request):
         return render(request, 'detail.html', {'my_settings': data})
     else:
         return render(request, 'settings.html')
+
+
+def detail(request):
+    if request.method == "POST":
+        print("D:/alena/planner/app/static/planner.css")
+        data = request.POST
+        if data.value == "day":
+            return render(request, 'planner_day.html', {'det': data})
+    else:
+        return render(request, 'detail.html')

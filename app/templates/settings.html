@@ -2,7 +2,7 @@
 {% block content %}
 <form name="form" action="" method="POST">{% csrf_token %}
     <h4>На какой год</h4>
-    <input name="ear" />
+    <input type="number" name="ear" />
     <h4>Страницы по</h4>
     <select name="type">
         <option value="month" > месяцам </option>

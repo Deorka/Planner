@@ -1,5 +1,21 @@
+<script type="text/javascript" src="static/color-picker-selection-rudebox/js/colorpicker.min.js"></script>
 {% extends 'base.html' %}
 {% block content %}
-        {{ my_settings.ear }}
-        {{ my_settings.type }}
+        <h2> Параметры </h2>
+                год: {{ my_settings.ear }}
+        <br>
+                тип: {{ my_settings.type }}
+        <hr />
+        <div class="basic">
+                {% if my_settings.type == "day"%}
+                        {% include "planner_day.html" %}
+                {%else %}
+                        {% include "planner_week.html" %}
+                {%endif%}
+        </div>
+        <!-- <script type="text/javascript">// <![CDATA[
+                ColorPicker(document.getElementById('slide'),
+                        document.getElementById('picker'), function(hex, hsv, rgb)
+                        {document.body.style.backgroundColor = hex;});
+        </script> -->
 {% endblock %}
