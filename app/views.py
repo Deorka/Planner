@@ -1,4 +1,5 @@
 from calendar import monthrange
+from datetime import datetime
 
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import SettingPlanner
@@ -15,10 +16,8 @@ def settings(request):
         data = request.POST
         print(data)
         days = {}
-        if data["year"]:
-            for month in range(11):
-                days[month + 1] = [str(monthrange(int(data["year"]), month + 1)[1]), month_mapping[month + 1]]
-
-        return render(request, 'detail.html', {'my_settings': data, 'days': days})
+        for month in range(1, 13):
+            days[month] = [str(monthrange(int(data["year"] or datetime.now().year), month)[1]), month_mapping[month]]
+        return render(request, 'planner.html', {'my_settings': data, 'days': days})
     else:
         return render(request, 'settings.html')

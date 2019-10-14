@@ -19,3 +19,29 @@ hr {
     margin-bottom: 0.5cm;
     box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
 }
+
+#panel {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: lightblue;
+    opacity: 0.9;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 20% 60%;
+}
+
+#params_panel {
+    margin: 10px;
+}
+
+#settings_panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.basic {
+    margin-top: 150px;
+}
