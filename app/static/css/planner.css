@@ -1,0 +1,21 @@
+h1 {
+    color: #0000FF;
+}
+
+hr {
+    border: none; /* Убираем границу для браузера Firefox */
+    color: #0000FF; /* Цвет линии для остальных браузеров */
+    background-color: #0000FF; /* Цвет линии для браузера Firefox и Opera */
+    height: 2px; /* Толщина линии */
+}
+
+.A4 {
+    background-image: url('');
+    width: 21cm;
+    height: 29.7cm;
+    display: block;
+    margin: 0 auto;
+    padding: 10px 25px;
+    margin-bottom: 0.5cm;
+    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+}

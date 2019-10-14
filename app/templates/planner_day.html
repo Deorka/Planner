@@ -1,123 +1,17 @@
 {% load static %}
-<link href="{% static 'planner.css' %}" rel="stylesheet">
+<link href="{% static 'css/planner.css' %}" rel="stylesheet">
 
-{%for i in "x"|rjust:"31" %}
-<form class="A4">
-    <h1>{{forloop.counter}} января</h1>
-    <br>
-    {%for i in "x"|rjust:"29" %}
-        <hr />
-        <br>
+{% for key, values in days.items %}
+    {%for i in "x"|rjust:values.0 %}
+        <div class="A4">
+            <div class="header" style="width: 100%; background-color: #b0e2ff; text-align: center; border-radius: 10px">
+            <h1 class="title" style="margin: 5px;">{{forloop.counter}} {{ values.1 }} {{ my_settings.year }}</h1>
+            </div>
+            <br>
+            {%for i in "x"|rjust:"29" %}
+                <hr class="line"/>
+                <br>
+            {%endfor%}
+        </div>
     {%endfor%}
-</form>
-{%endfor%}
-{%for i in "x"|rjust:"28" %}
-<form class="A4">
-    <h1>{{forloop.counter}} февраля</h1>
-    <br>
-    {%for i in "x"|rjust:"29" %}
-        <hr color="blue"/>
-        <br>
-    {%endfor%}
-</form>
-{%endfor%}
-{%for i in "x"|rjust:"31" %}
-<form class="A4">
-    <h1>{{forloop.counter}} марта</h1>
-    <br>
-    {%for i in "x"|rjust:"29" %}
-        <hr color="blue"/>
-        <br>
-    {%endfor%}
-</form>
-{%endfor%}
-{%for i in "x"|rjust:"30" %}
-<form class="A4">
-    <h1>{{forloop.counter}} апреля</h1>
-    <br>
-    {%for i in "x"|rjust:"29" %}
-        <hr color="blue"/>
-        <br>
-    {%endfor%}
-</form>
-{%endfor%}
-{%for i in "x"|rjust:"31" %}
-<form class="A4">
-    <h1>{{forloop.counter}} мая</h1>
-    <br>
-    {%for i in "x"|rjust:"29" %}
-        <hr color="blue"/>
-        <br>
-    {%endfor%}
-</form>
-{%endfor%}
-{%for i in "x"|rjust:"30" %}
-<form class="A4">
-    <h1>{{forloop.counter}} июня</h1>
-    <br>
-    {%for i in "x"|rjust:"29" %}
-        <hr color="blue"/>
-        <br>
-    {%endfor%}
-</form>
-{%endfor%}
-{%for i in "x"|rjust:"31" %}
-<form class="A4">
-    <h1>{{forloop.counter}} июля</h1>
-    <br>
-    {%for i in "x"|rjust:"29" %}
-        <hr color="blue"/>
-        <br>
-    {%endfor%}
-</form>
-{%endfor%}
-{%for i in "x"|rjust:"31" %}
-<form class="A4">
-    <h1>{{forloop.counter}} августа</h1>
-    <br>
-    {%for i in "x"|rjust:"29" %}
-        <hr color="blue"/>
-        <br>
-    {%endfor%}
-</form>
-{%endfor%}
-{%for i in "x"|rjust:"30" %}
-<form class="A4">
-    <h1>{{forloop.counter}} сентября</h1>
-    <br>
-    {%for i in "x"|rjust:"29" %}
-        <hr color="blue"/>
-        <br>
-    {%endfor%}
-</form>
-{%endfor%}
-{%for i in "x"|rjust:"31" %}
-<form class="A4">
-    <h1>{{forloop.counter}} октября</h1>
-    <br>
-    {%for i in "x"|rjust:"29" %}
-        <hr color="blue"/>
-        <br>
-    {%endfor%}
-</form>
-{%endfor%}
-{%for i in "x"|rjust:"30" %}
-<form class="A4">
-    <h1>{{forloop.counter}} ноября</h1>
-    <br>
-    {%for i in "x"|rjust:"29" %}
-        <hr color="blue"/>
-        <br>
-    {%endfor%}
-</form>
-{%endfor%}
-{%for i in "x"|rjust:"31" %}
-<form class="A4">
-    <h1>{{forloop.counter}} декабря</h1>
-    <br>
-    {%for i in "x"|rjust:"29" %}
-        <hr color="blue"/>
-        <br>
-    {%endfor%}
-</form>
 {%endfor%}
