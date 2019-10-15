@@ -1,0 +1,92 @@
+{% extends 'base_planner.html' %}
+{% load static %}
+
+{% block content %}
+    <div id="panel">
+        <script src="{% static 'js/jscolor.js' %}"></script>
+        <div id="params_panel">
+            <p><strong>Параметры</strong></p>
+            {% now "Y" as current_year %}
+            год: {% firstof my_settings.year current_year %}
+            <br>
+            тип: {{ my_settings.type }}
+            <br><br>
+            <button style="background-color: cadetblue; border-radius: 5px; border-color: cadetblue"
+                    onclick="printDiv();">
+                Печать
+            </button>
+        </div>
+
+        <div id="settings_panel">
+            <label for="jscolor"> Фоновая картинка:
+                <input type='file' id="image"/>
+            </label>
+
+            <label for="jscolor"> Цвет фона заголовков:
+                <input class="jscolor" onchange="update(this.jscolor)"
+                       value="b0e2ff">
+            </label>
+
+            <label for="jscolor"> Цвет заголовков:
+                <input class="jscolor" onchange="update_title(this.jscolor)"
+                       value="0000FF">
+            </label>
+
+            <label for="jscolor"> Цвет линий:
+                <input class="jscolor" onchange="update_line(this.jscolor)"
+                       value="0000FF">
+            </label>
+        </div>
+
+        <script>
+            function printDiv() {
+                const divToPrint = document.getElementById('basic');
+                const newWin = window.open('', 'Print-Window');
+                newWin.document.open();
+                newWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</body></html>');
+                newWin.document.close();
+                setTimeout(function () {
+                    newWin.close();
+                }, 10);
+            }
+
+            function update(jscolor) {
+                Array.from(document.getElementsByClassName('header')).forEach(function (elem) {
+                    elem.style.backgroundColor = '#' + jscolor;
+                });
+            }
+
+            function update_title(jscolor) {
+                Array.from(document.getElementsByClassName('title')).forEach(function (elem) {
+                    elem.style.color = '#' + jscolor;
+                });
+            }
+
+            function update_line(jscolor) {
+                Array.from(document.getElementsByClassName('line')).forEach(function (elem) {
+                    elem.style.backgroundColor = '#' + jscolor;
+                });
+            }
+
+            document.querySelector('input[type="file"]').addEventListener('change', function () {
+                if (this.files && this.files[0]) {
+                    var file = document.getElementById("image").files[0];
+                    var reader = new FileReader();
+                    reader.onloadend = function () {
+                        Array.from(document.getElementsByClassName('A4')).forEach(function (element) {
+                            element.style.backgroundImage = "url(" + reader.result + ")";
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        </script>
+    </div>
+    <div class="basic" id="basic">
+        {% if my_settings.type == "day" %}
+            {% include "planner_day.html" %}
+        {% else %}
+            {% include "planner_week.html" %}
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,16 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-<form name="form" action="" method="POST">{% csrf_token %}
-    <h4>На какой год (необязательно)</h4>
-    <input type="number" name="year" />
-    <h4>Страницы по</h4>
-    <select name="type">
-        <option value="month" > месяцам </option>
-        <option value="week"> неделям </option>
-        <option value="day"> дням </option>
-    </select>
-    <br><br>
-    <input type="submit" value="OK" />
-    <input type="reset" value="Reset" />
-</form>
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Планировщик</a>
+    </nav>
+    <div class="card"
+         style="margin: 10px; width: fit-content; border-radius: 20px">
+        <div style="margin: 20px">
+            <form name="form" action="" method="POST" target="_blank">{% csrf_token %}
+                <label for="year_input">На какой год (необязательно):</label>
+                <input type="number" name="year" id="year_input"/>
+                <br>
+                <label for="type_input">Страницы по</label>
+                <select name="type" id="type_input">
+                    <option value="month"> месяцам</option>
+                    <option value="week"> неделям</option>
+                    <option value="day"> дням</option>
+                </select>
+                <br><br>
+                <input class="btn btn-primary" type="submit" value="OK"/>
+                <input class="btn btn-danger" type="reset" value="Reset"/>
+            </form>
+        </div>
+    </div>
 {% endblock %}
