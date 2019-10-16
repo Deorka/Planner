@@ -8,7 +8,7 @@ month_mapping = {1: "Января", 2: "Февраля", 3: "Марта", 4: "А
                  9: "Сентября", 10: "Октября", 11: "Ноября", 12: "Декабря"}
 
 
-# week_mapping = {1: "Понедельник", 2: "Вторник", 3: "Среда", 4: "Четверг", 5: "Пятница", 6: "Суббота", 7: "Воскресенье"}
+week_mapping = {1: "Понедельник", 2: "Вторник", 3: "Среда", 4: "Четверг", 5: "Пятница", 6: "Суббота", 7: "Воскресенье"}
 
 
 def settings(request):
@@ -16,8 +16,11 @@ def settings(request):
         data = request.POST
         print(data)
         days = {}
-        for month in range(1, 13):
-            days[month] = [str(monthrange(int(data["year"] or datetime.now().year), month)[1]), month_mapping[month]]
+        if data.get('type') == "day":
+            for month in range(1, 13):
+                days[month] = [str(monthrange(int(data["year"] or datetime.now().year), month)[1]), month_mapping[month]]
+        else:
+            days = week_mapping
         return render(request, 'planner.html', {'my_settings': data, 'days': days})
     else:
         return render(request, 'settings.html')

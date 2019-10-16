@@ -7,15 +7,14 @@
          style="margin: 10px; width: fit-content; border-radius: 20px">
         <div style="margin: 20px">
             <form name="form" action="" method="POST" target="_blank">{% csrf_token %}
+                <label for="type_input">Тип:</label>
+                <select name="type" id="type_input">
+                    <option value="day"> на год </option>
+                    <option value="week"> на неделю</option>
+                </select>
+                <br>
                 <label for="year_input">На какой год (необязательно):</label>
                 <input type="number" name="year" id="year_input"/>
-                <br>
-                <label for="type_input">Страницы по</label>
-                <select name="type" id="type_input">
-                    <option value="month"> месяцам</option>
-                    <option value="week"> неделям</option>
-                    <option value="day"> дням</option>
-                </select>
                 <br><br>
                 <input class="btn btn-primary" type="submit" value="OK"/>
                 <input class="btn btn-danger" type="reset" value="Reset"/>

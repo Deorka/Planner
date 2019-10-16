@@ -9,8 +9,17 @@ hr {
     width: 100%;
     border: none;
     border-top: solid 2px #0000FF;
-    color: #0000FF; /* Цвет линии для остальных браузеров */
+    color: #0000FF; /* Цвет линии */
 }
+
+table {
+    bgcolor: #b0e2ff;
+    border-collapse: collapse; /*убираем пустые промежутки между ячейками*/
+    border: 1px solid #0000FF; /*устанавливаем для таблицы внешнюю границу серого цвета толщиной 1px*/
+}
+
+th, td {border: 1px solid #0000FF;}
+
 
 .A4 {
     display: block;
@@ -49,33 +58,36 @@ hr {
 .basic {
     margin-top: 150px;
 }
-@media print {
-  .page-break {
-    display: block;
-    page-break-before: always;
-  }
 
-  size: A4 portrait;
+@media print {
+    .page-break {
+        display: block;
+        page-break-before: always;
+    }
+
+    size: A4 portrait
+
+;
 }
 
 @media print {
-  body {
-    margin: 0;
-    padding: 0;
-  }
+    body {
+        margin: 0;
+        padding: 0;
+    }
 
-  .A4 {
-    box-shadow: none;
-    margin: 0;
-    width: auto;
-    height: auto;
-  }
+    .A4 {
+        box-shadow: none;
+        margin: 0;
+        width: auto;
+        height: auto;
+    }
 
-  .noprint {
-    display: none;
-  }
+    .noprint {
+        display: none;
+    }
 
-  .enable-print {
-    display: block;
-  }
+    .enable-print {
+        display: block;
+    }
 }
