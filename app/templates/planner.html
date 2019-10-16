@@ -3,6 +3,7 @@
 
 {% block content %}
     <div id="panel">
+        <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
         <script src="{% static 'js/jscolor.js' %}"></script>
         <div id="params_panel">
             <p><strong>Параметры</strong></p>
@@ -40,14 +41,7 @@
 
         <script>
             function printDiv() {
-                const divToPrint = document.getElementById('basic');
-                const newWin = window.open('', 'Print-Window');
-                newWin.document.open();
-                newWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</body></html>');
-                newWin.document.close();
-                setTimeout(function () {
-                    newWin.close();
-                }, 10);
+                printJS({printable:'basic', type:'html', css: window.location.href + "static/css/planner.css"})
             }
 
             function update(jscolor) {

@@ -6,14 +6,15 @@
     <div class="card"
          style="margin: 10px; width: fit-content; border-radius: 20px">
         <div style="margin: 20px">
-            <form name="form" action="" method="POST" target="_blank">{% csrf_token %}
+            <form name="form" action="" method="POST"
+                  target="_blank">{% csrf_token %}
                 <label for="type_input">Тип:</label>
-                <select name="type" id="type_input">
-                    <option value="day"> на год </option>
+                <select name="type" id="type_input" onchange="change(this)">
+                    <option value="day"> на год</option>
                     <option value="week"> на неделю</option>
                 </select>
                 <br>
-                <label for="year_input">На какой год (необязательно):</label>
+                <label for="year_input" id="year_label">На какой год (необязательно):</label>
                 <input type="number" name="year" id="year_input"/>
                 <br><br>
                 <input class="btn btn-primary" type="submit" value="OK"/>
@@ -21,4 +22,21 @@
             </form>
         </div>
     </div>
+    <script>
+        function change(obj) {
+            var selectBox = obj;
+            var selected = selectBox.options[selectBox.selectedIndex].value;
+            var year_input = document.getElementById("year_input");
+            var year_label = document.getElementById("year_label");
+
+            if (selected === "week") {
+                year_input.style.display = "none";
+                year_label.style.display = "none";
+            } else {
+                year_input.style.display = "";
+                year_label.style.display = ""
+            }
+        }
+    </script>
+
 {% endblock %}
