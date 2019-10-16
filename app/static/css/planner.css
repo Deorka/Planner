@@ -23,7 +23,6 @@ th, td {border: 1px solid #0000FF;}
 
 .A4 {
     display: block;
-    background-image: url('');
     width: 21cm;
     height: 29.7cm;
     display: block;
@@ -82,6 +81,10 @@ th, td {border: 1px solid #0000FF;}
         width: auto;
         height: auto;
     }
+
+    .basic {
+        margin-top: 0;
+        }
 
     .noprint {
         display: none;
