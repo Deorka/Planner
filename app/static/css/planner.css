@@ -3,13 +3,17 @@ h1 {
 }
 
 hr {
-    border: none; /* Убираем границу для браузера Firefox */
+    display: block;
+    height: 1px;
+    background: transparent;
+    width: 100%;
+    border: none;
+    border-top: solid 2px #0000FF;
     color: #0000FF; /* Цвет линии для остальных браузеров */
-    background-color: #0000FF; /* Цвет линии для браузера Firefox и Opera */
-    height: 2px; /* Толщина линии */
 }
 
 .A4 {
+    display: block;
     background-image: url('');
     width: 21cm;
     height: 29.7cm;
@@ -44,4 +48,34 @@ hr {
 
 .basic {
     margin-top: 150px;
+}
+@media print {
+  .page-break {
+    display: block;
+    page-break-before: always;
+  }
+
+  size: A4 portrait;
+}
+
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .A4 {
+    box-shadow: none;
+    margin: 0;
+    width: auto;
+    height: auto;
+  }
+
+  .noprint {
+    display: none;
+  }
+
+  .enable-print {
+    display: block;
+  }
 }
