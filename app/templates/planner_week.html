@@ -3,11 +3,11 @@
 
 <div class="A4">
     <br>
-    <table style="border: 1px solid #0000FF; width: 21cm; height: 29cm" ;>
+    <table class="line" style="border: 1px solid #0000FF; width: 21cm; height: 29cm" ;>
         {% for key, values in days.items %}
             <tr style="border: 1px solid #0000FF;">
-                <td style="background-color:#b0e2ff ; width: 20%; border: 1px solid #0000FF"><h3>{{ values }} </h3></td>
-                <td style="border: 1px solid #0000FF">
+                <td class="td" style="background-color:#b0e2ff ; width: 20%; border: 1px solid #0000FF"><h1 class="title">{{ values }} </h1></td>
+                <td class="line" style="border: 1px solid #0000FF">
                     <hr class="line"/>
                     {% for i in "x"|rjust:"3" %}
                         <br>

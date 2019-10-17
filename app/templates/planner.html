@@ -48,6 +48,9 @@
                 Array.from(document.getElementsByClassName('header')).forEach(function (elem) {
                     elem.style.backgroundColor = '#' + jscolor;
                 });
+                Array.from(document.getElementsByClassName('td')).forEach(function (elem) {
+                    elem.style.backgroundColor = '#' + jscolor;
+                });
             }
 
             function update_title(jscolor) {
@@ -59,6 +62,9 @@
             function update_line(jscolor) {
                 Array.from(document.getElementsByClassName('line')).forEach(function (elem) {
                     elem.style.borderColor = '#' + jscolor;
+                });
+                Array.from(document.getElementsByClassName('td')).forEach(function (elem) {
+                    elem.style.border = '1px solid' + '#' + jscolor;
                 });
             }
 
